@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NovaFetch — All Media Downloader (Premium)</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Preload small assets -->
+</head>
+<body>
+  <!-- Particles & Parallax Background -->
+  <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Password Protected Entry Overlay -->
+  <div id="entry-overlay" class="entry-overlay" role="dialog" aria-modal="true" aria-label="Secure Entry">
+    <div class="entry-card glass">
+      <div class="entry-header">
+        <h1>NovaFetch</h1>
+        <p class="muted">Premium All-Media Downloader — Authorized Access Only</p>
+      </div>
+
+      <div class="entry-body">
+        <label for="entry-password" class="sr-only">Enter Secret Code</label>
+        <input id="entry-password" class="password-input" type="password" placeholder="Enter secret code" autocomplete="off" />
+        <div class="entry-actions">
+          <button id="unlock-btn" class="btn primary">Unlock</button>
+          <button id="sound-toggle-entry" class="btn ghost" title="Toggle sound">🔊</button>
+        </div>
+      </div>
+
+      <div class="entry-footer muted small">Powered by ZUNAROFFICIAL —  <code>script.js
+
+
+
+</code></div>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <main id="app" class="app hidden" aria-hidden="true">
+    <header class="topbar glass">
+      <div class="brand">
+        <h2>NovaFetch</h2>
+        <span class="tag">All Media Downloader • Premium UI</span>
+      </div>
+
+      <div class="controls">
+        <button id="sound-toggle" class="btn icon">🔊</button>
+        <button id="copy-link" class="btn ghost">Copy Link</button>
+      </div>
+    </header>
+
+    <section class="hero glass">
+      <div class="hero-left">
+        <h1 class="neon">Download any public media — Fast, Clean, & Secure</h1>
+        <p class="muted">Paste a public media link and pick quality. This is a frontend demo — integrate your backend API later.</p>
+
+        <div class="paste-panel">
+          <label for="media-link" class="sr-only">Media URL</label>
+          <input id="media-link" class="input" placeholder="Paste media link here (YouTube / Instagram / TikTok / Vimeo / SoundCloud)"/>
+          <div id="paste-hint" class="hint muted">Auto-detects platform on paste</div>
+        </div>
+
+        <div id="detected-card" class="detected-card glass hidden">
+          <div class="platform">
+            <div id="platform-icon" class="platform-icon">🔗</div>
+            <div>
+              <div id="platform-name" class="platform-name">Platform</div>
+              <div id="meta-title" class="muted small">Title will appear here</div>
+            </div>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-pill">Duration: <span id="meta-duration">--:--</span></div>
+            <div class="meta-pill">Type: <span id="meta-type">Video</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="thumbnail glass">
+          <canvas id="thumb-canvas" width="640" height="360" aria-hidden="true"></canvas>
+          <div class="thumb-overlay">
+            <div id="thumb-duration" class="duration">00:00</div>
+            <button id="preview-play" class="btn small">Preview</button>
+          </div>
+        </div>
+
+        <div class="quality-panel glass hidden" id="quality-panel">
+          <div class="quality-header">
+            <strong>Choose Quality</strong>
+            <span class="muted small">Estimated size shown</span>
+          </div>
+
+          <div id="qualities" class="qualities">
+            <!-- Quality cards injected by JS -->
+          </div>
+
+          <div class="format-row">
+            <label class="format">Download as:</label>
+            <div class="format-buttons">
+              <button data-format="video" class="btn pill active">Video</button>
+              <button data-format="audio" class="btn pill">Audio</button>
+              <button data-format="thumb" class="btn pill">Thumbnail</button>
+            </div>
+          </div>
+
+          <div class="download-row">
+            <button id="download-btn" class="btn large primary">Start Download</button>
+            <div id="fake-progress" class="progress hidden" aria-hidden="true">
+              <div class="progress-bar" id="progress-bar" style="width:0%"></div>
+              <div class="progress-label" id="progress-label">0%</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="history glass hidden" id="history">
+      <h3 class="section-title">Recent Sessions</h3>
+      <div id="history-list" class="history-list muted small">
+        <!-- Filled by JS -->
+        No downloads yet.
+      </div>
+    </section>
+
+    <footer class="footer glass muted">
+      <div>© <span id="year"></span> ZUNAROFFICIAL — Frontend Demo</div>
+      <div class="footer-right">Built by <strong>ZUNAR -❍⏤‌‌●ZB●───♫▷
+
+ </strong></div>
+    </footer>
+  </main>
+
+  <!-- Decorative / Accessibility -->
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
